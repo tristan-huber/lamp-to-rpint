@@ -5955,22 +5955,53 @@
       "tagIndex": 0
     },
     {
-      "atomType": "GitHubMolecule",
-      "x": 0.49739583333333337,
-      "y": 0.48214285714285715,
-      "uniqueID": "id-13937",
-      "name": "Github Molecule",
-      "topLevel": false,
-      "allAtoms": [
+      "atomType": "CutLayout",
+      "x": 0.50390625,
+      "y": 0.5059523809523809,
+      "uniqueID": "id-13941",
+      "name": "Cut Layout",
+      "ioValues": [
         {
-          "atomType": "Output",
-          "x": 0.98,
-          "y": 0.5,
-          "uniqueID": "id-13939"
+          "name": "Sheet Width",
+          "ioValue": 96
+        },
+        {
+          "name": "Sheet Height",
+          "ioValue": 48
+        },
+        {
+          "name": "Part Padding",
+          "ioValue": 0.4
         }
       ],
-      "allConnectors": [],
-      "fileTypeVersion": 1
+      "placements": [
+        [
+          {
+            "id": 1,
+            "rotate": 300,
+            "translate": {
+              "x": 15.36895854373805,
+              "y": 15.36895854373805
+            }
+          },
+          {
+            "id": 2,
+            "rotate": 150,
+            "translate": {
+              "x": 22.0331422819344,
+              "y": 38.13483497416372
+            }
+          },
+          {
+            "id": 0,
+            "rotate": 120,
+            "translate": {
+              "x": 5.390369438776278,
+              "y": 33.57745459441398
+            }
+          }
+        ]
+      ]
     }
   ],
   "allConnectors": [
@@ -5978,6 +6009,11 @@
       "ap2Name": "geometry",
       "ap1ID": "id-13113",
       "ap2ID": "id-13934"
+    },
+    {
+      "ap2Name": "geometry",
+      "ap1ID": "id-13934",
+      "ap2ID": "id-13941"
     }
   ],
   "unitsKey": "Inches",
