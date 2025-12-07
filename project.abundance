@@ -12021,12 +12021,12 @@
       "atomType": "GitHubMolecule",
       "x": 0.38476562500000006,
       "y": 0.6488095238095237,
-      "uniqueID": "id-15105",
+      "uniqueID": "id-15126",
       "name": "IthFromAssembly",
       "ioValues": [
         {
           "name": "i",
-          "ioValue": 4
+          "ioValue": 0
         }
       ],
       "topLevel": false,
@@ -12035,17 +12035,17 @@
           "atomType": "Output",
           "x": 0.98,
           "y": 0.5,
-          "uniqueID": "id-15106"
+          "uniqueID": "id-15122"
         },
         {
           "atomType": "Code",
           "x": 0.5026041666666666,
           "y": 0.6845238095238095,
-          "uniqueID": "id-15107",
+          "uniqueID": "id-15123",
           "ioValues": [
             {
               "name": "i",
-              "ioValue": 4
+              "ioValue": 0
             }
           ],
           "codeVersion": 1,
@@ -12055,7 +12055,7 @@
           "atomType": "Input",
           "x": 0.025384615384615384,
           "y": 0.15384615384615385,
-          "uniqueID": "id-15108",
+          "uniqueID": "id-15124",
           "name": "geometry",
           "type": "geometry"
         },
@@ -12063,7 +12063,7 @@
           "atomType": "Input",
           "x": 0.025384615384615384,
           "y": 0.24615384615384617,
-          "uniqueID": "id-15109",
+          "uniqueID": "id-15125",
           "name": "i",
           "type": "number"
         }
@@ -12071,18 +12071,18 @@
       "allConnectors": [
         {
           "ap2Name": "number or geometry",
-          "ap1ID": "id-15107",
-          "ap2ID": "id-15106"
+          "ap1ID": "id-15123",
+          "ap2ID": "id-15122"
         },
         {
           "ap2Name": "geometry",
-          "ap1ID": "id-15108",
-          "ap2ID": "id-15107"
+          "ap1ID": "id-15124",
+          "ap2ID": "id-15123"
         },
         {
           "ap2Name": "i",
-          "ap1ID": "id-15109",
-          "ap2ID": "id-15107"
+          "ap1ID": "id-15125",
+          "ap2ID": "id-15123"
         }
       ],
       "parentRepo": {
@@ -12112,6 +12112,74 @@
       },
       "unitsKey": "Unitless",
       "fileTypeVersion": 1
+    },
+    {
+      "atomType": "Code",
+      "x": 0.7278645833333334,
+      "y": 0.40476190476190477,
+      "uniqueID": "id-15138",
+      "codeVersion": 1,
+      "code": "\n      const Inputs = [\n       {inputName: \"shape\", type: \"geometry\", defaultValue: null},\n      ]\n      //This defines the molecules inputs and creates variables with the same names which can be referenced in the code\n\n      //Gets the shape from the library - no need to clone or access geometry directly\n      let inputShape = library[shape]\n      let results = []\n      for (const s of await AssemblyAsIterable(inputShape)) {\n        let bounds = await GetBounds(s)\n        let offset = bounds.min[2]\n        results.push(await Move(s, 0, 0, -1 * offset))\n      }\n      return Assembly(results)\n\n\n      "
+    },
+    {
+      "atomType": "Rotate",
+      "x": 0.4700520833333333,
+      "y": 0.6577380952380952,
+      "uniqueID": "id-15146",
+      "ioValues": [
+        {
+          "name": "x-axis degrees",
+          "ioValue": 0,
+          "currentEquation": "0"
+        },
+        {
+          "name": "y-axis degrees",
+          "ioValue": 90,
+          "currentEquation": "90"
+        },
+        {
+          "name": "z-axis degrees",
+          "ioValue": 0,
+          "currentEquation": "0"
+        }
+      ]
+    },
+    {
+      "atomType": "Move",
+      "x": 0.6002604166666667,
+      "y": 0.7023809523809524,
+      "uniqueID": "id-15152",
+      "ioValues": [
+        {
+          "name": "xDist",
+          "ioValue": -30,
+          "currentEquation": "-30"
+        },
+        {
+          "name": "yDist",
+          "ioValue": -20
+        },
+        {
+          "name": "zDist",
+          "ioValue": 0
+        }
+      ]
+    },
+    {
+      "atomType": "Assembly",
+      "x": 0.7695312500000001,
+      "y": 0.6488095238095237,
+      "uniqueID": "id-15158",
+      "ioValues": [
+        {
+          "name": "Shape 1",
+          "ioValue": null
+        },
+        {
+          "name": "Shape 2",
+          "ioValue": null
+        }
+      ]
     }
   ],
   "allConnectors": [
@@ -12123,7 +12191,7 @@
     {
       "ap2Name": "geometry",
       "ap1ID": "id-13113",
-      "ap2ID": "id-15105"
+      "ap2ID": "id-15126"
     },
     {
       "ap2Name": "Shape 1",
@@ -12149,6 +12217,31 @@
       "ap2Name": "shape",
       "ap1ID": "id-15074",
       "ap2ID": "id-15079"
+    },
+    {
+      "ap2Name": "Shape 1",
+      "ap1ID": "id-15079",
+      "ap2ID": "id-15158"
+    },
+    {
+      "ap2Name": "geometry",
+      "ap1ID": "id-15126",
+      "ap2ID": "id-15146"
+    },
+    {
+      "ap2Name": "geometry",
+      "ap1ID": "id-15146",
+      "ap2ID": "id-15152"
+    },
+    {
+      "ap2Name": "Shape 2",
+      "ap1ID": "id-15152",
+      "ap2ID": "id-15158"
+    },
+    {
+      "ap2Name": "number or geometry",
+      "ap1ID": "id-15158",
+      "ap2ID": "id-12804"
     }
   ],
   "unitsKey": "Inches",
